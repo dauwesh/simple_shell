@@ -2,7 +2,7 @@
 
 while true; do
     # Display prompt
-    echo -n "simple_shell> "
+    echo -n "#cisfun$ "
 
     # Read user input
     read command
@@ -14,9 +14,9 @@ while true; do
     fi
 
     # Execute the command using execve
-    if command -v "$command" &> /dev/null; then
+    if [ -x "$command" ]; then
         exec "$command"
     else
-        echo "Error: Command not found: $command"
+        echo "./shell: No such file or directory"
     fi
 	done
